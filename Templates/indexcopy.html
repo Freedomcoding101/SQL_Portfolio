@@ -21,26 +21,27 @@
                   <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ url_for('index')}}">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('index') }}#about">About</a>
+                        <a class="nav-link" href="#about">About</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('index') }}#skills">Skills</a>
+                        <a class="nav-link" href="#skills">Skills</a>
                       </li>
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Projects
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          {% for project in projects %}
-                          <li><a class="dropdown-item" href="/projects/{{ project.id }}">Project {{ project.id }}</a></li>
-                          {% endfor %}
+                          <li><a class="dropdown-item" href="#project1">Project 1</a></li>
+                          <li><a class="dropdown-item" href="#project2">Project 2</a></li>
+                          <li><a class="dropdown-item" href="#project3">Project 3</a></li>
+                          <li><a class="dropdown-item" href="#project4">Project 4</a></li>
                         </ul>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('index') }}#contact">Contact</a>
+                        <a class="nav-link" href="#contact">Contact</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('add_project')}}">Add Project</a>
@@ -76,38 +77,82 @@
                 <li>SQLAlchemy</li>
                 <li>GitHub</li>
                 <li>Visual Studio Code</li>
-                <li>HTML</HTML></li>
-                <li>CSS</li>
             </ul>
         </section>
-        {% for project in projects %}
-            <section id="projects">
-                <div id="triangle3"></div>
-                <i class="fas fa-file-code"></i>
-                <h2>{{ project.name }}</h2>
-                <div id="project-list">
-                    <div id="project1" class="a-project">
-                        <h3>{{ project.name }}</h3>
-                        <a href="{{ project.url }}" class="github-btn">
-                            <i class="fab fa-github"></i>
-                            View on GitHub
-                        </a>
-                        <p>
-                            {{ project.description }}
-                        </p>
-                        <p>
-                            {{ project.skills_practiced }}
-                        </p>
-                    </div>
+        <section id="projects">
+            <div id="triangle3"></div>
+            <i class="fas fa-file-code"></i>
+            <h2>Projects</h2>
+            <div id="project-list">
+                <div id="project1" class="a-project">
+                    <h3>Project name</h3>
+                    <a href="#" class="github-btn">
+                        <i class="fab fa-github"></i>
+                        View on GitHub
+                    </a>
+                    <p>
+                        blah 
+                    </p>
+                    <p>
+                        blah
+                    </p>
                 </div>
-                <div id="triangle4"></div>
-            </section>
-        {% endfor %}
+                <div id="project2" class="a-project">
+                    <h3>Project Title</h3>
+                    <a href="#" class="github-btn">
+                        <i class="fab fa-github"></i>
+                        View on GitHub
+                    </a>
+                    <p>
+                        Pastry wafer chocolate cake caramels. 
+                        Gummi bears pudding sugar plum macaroon. 
+                    </p>
+                    <p>
+                        Skills: Pastry wafer chocolate cake caramels. 
+                        Gummi bears pudding sugar plum macaroon. 
+                    </p>
+                </div>
+                <div id="project3" class="a-project">
+                    <h3>Project Title</h3>
+                    <a href="#" class="github-btn">
+                        <i class="fab fa-github"></i>
+                        View on GitHub
+                    </a>
+                    <p>
+                        Pastry wafer chocolate cake caramels. 
+                        Gummi bears pudding sugar plum macaroon. 
+                    </p>
+                    <p>
+                        Skills: Pastry wafer chocolate cake caramels. 
+                        Gummi bears pudding sugar plum macaroon. 
+                    </p>
+                </div>
+                <div id="project4" class="a-project">
+                    <h3>Project Title</h3>
+                    <a href="#" class="github-btn">
+                        <i class="fab fa-github"></i>
+                        View on GitHub
+                    </a>
+                    <p>
+                        Pastry wafer chocolate cake caramels. 
+                        Gummi bears pudding sugar plum macaroon. 
+                    </p>
+                    <p>
+                        Skills: Pastry wafer chocolate cake caramels. 
+                        Gummi bears pudding sugar plum macaroon. 
+                    </p>
+                </div>
+            </div>
+            <div id="triangle4"></div>
+        </section>
         <section id="contact">
             <i class="fas fa-paper-plane"></i>
             <h2>Contact Me</h2>
             <p>
-                Email:<email>oadillabough@gmail.com</email>
+                Pastry wafer chocolate cake caramels. 
+                Gummi bears pudding sugar plum macaroon. 
+                Cake tart apple pie soufflé sweet sweet. 
+                Topping bear claw lemon drops gingerbread biscuit pudding fruitcake icing chocolate bar.
             </p>
             <p>
                 <i class="fas fa-envelope"></i>

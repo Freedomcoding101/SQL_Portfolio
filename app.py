@@ -1,12 +1,12 @@
 from flask import (render_template, url_for,
                     request, redirect)
-from models import db, Project, app
-import datetime
+from models import db, Project, app, datetime
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    projects = Project.query.all()
+    return render_template('index.html', projects=projects, id=id)
 
 @app.route('/projects/new', methods=('GET', 'POST'))
 def add_project():
@@ -20,6 +20,13 @@ def add_project():
         db.session.commit()
         return redirect(url_for('index'))
     return render_template('projectform.html')
+
+@app.route('/projects/<id>')
+def details(id):
+    project = Project.query.get_or_404(id)
+    skills = project.skills_practiced.split(',')
+    date= project.project_finished.strftime('%B-%Y')
+    return render_template('detail.html', project=project, skills=skills, date=date)
 
 if __name__ == "__main__":
     with app.app_context():
