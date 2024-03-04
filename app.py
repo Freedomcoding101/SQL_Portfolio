@@ -23,10 +23,15 @@ def add_project():
 
 @app.route('/projects/<id>')
 def details(id):
+    projects = Project.query.all()
     project = Project.query.get_or_404(id)
     skills = project.skills_practiced.split(',')
     date= project.project_finished.strftime('%B-%Y')
-    return render_template('detail.html', project=project, skills=skills, date=date)
+    return render_template('detail.html', project=project, skills=skills, date=date, projects=projects)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 if __name__ == "__main__":
     with app.app_context():
