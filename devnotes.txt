@@ -1,5 +1,3 @@
 change date on responsive layout inside of database to reflect truth on github..
 
-Set up edit/delete.
-
 Resume added to file... work on an actual resume.. kinda cool right now you have it downloading to their computer...

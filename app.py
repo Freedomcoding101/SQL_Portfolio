@@ -10,6 +10,7 @@ def index():
 
 @app.route('/projects/new', methods=('GET', 'POST'))
 def add_project():
+    projects = Project.query.all()
     if request.form:
         dateconv = request.form['date'].replace('-', '')
         date_obj = datetime.datetime.strptime(dateconv, "%Y%m")
@@ -19,7 +20,7 @@ def add_project():
         db.session.add(new_project)
         db.session.commit()
         return redirect(url_for('index'))
-    return render_template('projectform.html')
+    return render_template('projectform.html', projects=projects)
 
 @app.route('/projects/<id>')
 def details(id):
@@ -31,7 +32,31 @@ def details(id):
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    projects = Project.query.all()
+    return render_template('about.html', projects=projects)
+
+@app.route('/projects/<id>/edit', methods = ['GET', 'POST'])
+def edit(id):
+    projects=Project.query.all()
+    project = Project.query.get_or_404(id)
+    if request.form:
+        dateconv = request.form['date'].replace('-', '')
+        date_obj = datetime.datetime.strptime(dateconv, "%Y%m")
+        project.name = request.form['title']
+        project.project_finished = date_obj
+        project.description = request.form['desc']
+        project.skills_practiced = request.form['skills']
+        project.url = request.form['github']
+        db.session.commit()
+        return redirect(url_for('index'))
+    return render_template('edit.html', project=project, projects=projects)
+
+@app.route('/projects/,<id>/delete')
+def delete(id):
+    project = Project.query.get_or_404(id)
+    db.session.delete(project)
+    db.session.commit()
+    return redirect(url_for('index'))
 
 if __name__ == "__main__":
     with app.app_context():

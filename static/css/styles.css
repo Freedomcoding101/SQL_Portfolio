@@ -223,6 +223,9 @@ Skills
 /*******
 Projects
 *******/
+#projects a {
+    text-decoration: none;
+}
 
 #projects {
     background-color: var(--secondary);
