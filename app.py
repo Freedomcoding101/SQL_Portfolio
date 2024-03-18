@@ -51,12 +51,16 @@ def edit(id):
         return redirect(url_for('index'))
     return render_template('edit.html', project=project, projects=projects)
 
-@app.route('/projects/,<id>/delete')
+@app.route('/projects/<id>/delete')
 def delete(id):
     project = Project.query.get_or_404(id)
     db.session.delete(project)
     db.session.commit()
     return redirect(url_for('index'))
+
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html', msg=error), 404
 
 if __name__ == "__main__":
     with app.app_context():

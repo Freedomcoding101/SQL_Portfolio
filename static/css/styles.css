@@ -554,6 +554,18 @@ EXCEEDS - About Page
     padding-right: 10px;
 }
 
+/******************
+Error - 404
+******************/
+#not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
+
 /*******
 Media Queries
 *******/
