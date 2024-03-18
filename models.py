@@ -1,14 +1,14 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-import datetime
 
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///projects.db'
 db = SQLAlchemy(app)
 
+
 class Project(db.Model):
-    __tablename__='projects'
+    __tablename__ = 'projects'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column('Name', db.String())
     project_finished = db.Column('Created', db.DateTime())
